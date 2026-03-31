@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -372,7 +371,7 @@ hr.div{border:none;border-top:1px solid var(--br);margin:14px 0}
       <a onclick="nav('home')" id="nl-home" class="active">Home</a>
       <a onclick="nav('shop')" id="nl-shop">Shop</a>
       <a onclick="nav('contact')" id="nl-contact">Contact</a>
-      <a onclick="nav('admin-login')" id="nl-admin">Admin</a>
+      <!-- <a onclick="nav('admin-login')" id="nl-admin">Admin</a> -->  
     </div>
     <div class="nav-acts">
       <div class="nav-btn" onclick="nav('wishlist')" title="Wishlist">
@@ -825,7 +824,16 @@ function nav(page) {
   if (page === 'checkout') renderCheckout();
   if (page === 'wishlist') renderWishlist();
   if (page === 'admin') renderAdmin();
+
+   // change URL using hash
+  window.location.hash = page;
 }
+// TESTING FOR HIDE ADMIN
+window.onload = function() {
+  const page = window.location.hash.replace('#', '') || 'home';
+  nav(page);
+};
+//--------------------Admin hideout--------------------
 
 // ══════════════════════════════════════════
 // TOAST
